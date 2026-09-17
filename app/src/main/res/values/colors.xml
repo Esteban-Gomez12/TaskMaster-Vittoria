@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Paleta Cafetería Vittoria SpA -->
+    <color name="cafe_espresso">#3E2723</color>
+    <color name="cafe_mocha">#5D4037</color>
+    <color name="cafe_caramel">#8D6E63</color>
+    <color name="cafe_cream">#C7855B</color> <!-- Tono Café Claro / Latte -->
+    <color name="cafe_text">#21130D</color>
+
+    <!-- Compatibilidad con vistas anteriores -->
+    <color name="purple_soft">#7B1FA2</color>
+    <color name="purple_dark">#4A148C</color>
+    <color name="text_dark">#212121</color>
+    <color name="background_light">#F5EBE0</color>
+
+    <!-- Base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
