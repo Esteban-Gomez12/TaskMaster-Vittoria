@@ -1,119 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cafe_cream">
+    android:background="#F5EBE0"
+    android:fillViewport="true"
+    tools:context=".TaskFormActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Registro de Pedido Operativo"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@color/cafe_espresso"
-            android:layout_marginBottom="16dp" />
-
-        <EditText
-            android:id="@+id/etNombreTarea"
+        <!-- CardView: Contenedor tipo Tarjeta -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descripción del pedido (ej. Café Latte x2)"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="16dp" />
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            app:cardUseCompatPadding="true">
 
-        <CheckBox
-            android:id="@+id/cbUrgente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pedido Prioritario / Express"
-            android:textColor="@color/cafe_text"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Prioridad de atención:"
-            android:textColor="@color/cafe_espresso"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp" />
-
-        <RadioGroup
-            android:id="@+id/rgPrioridad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/rbBaja"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Baja" />
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <RadioButton
-                android:id="@+id/rbMedia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="Media" />
+                <!-- 1. ImageView: Encabezado -->
+                <ImageView
+                    android:id="@+id/imgHeader"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Logo Café Vittoria"
+                    android:src="@drawable/cafe"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-            <RadioButton
-                android:id="@+id/rbAlta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="Alta" />
-        </RadioGroup>
+                <!-- 2. TextViews y EditText -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Registro de Pedido / Tarea"
+                    android:textColor="#3E2723"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Nombre del Cliente o Tarea:"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etTaskName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:hint="Ej. Pedido Espresso Doble"
+                    android:inputType="text"
+                    android:padding="10dp" />
+
+                <!-- 3. Spinner: Selección de Producto / Categoría xd -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Tipo de Producto / Categoría:"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp" />
+
+                <!-- 4. RadioGroup y RadioButton -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Tamaño del Pedido:"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/rgSize"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbSmall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chico"
+                        android:textColor="#21130D" />
+
+                    <RadioButton
+                        android:id="@+id/rbMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Mediano"
+                        android:textColor="#21130D" />
+
+                    <RadioButton
+                        android:id="@+id/rbLarge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Grande"
+                        android:textColor="#21130D" />
+                </RadioGroup>
+
+                <!-- si quieren, pueden agregar algo mas -->
+                <!-- 5. CheckBox: Agregados -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Opciones adicionales / Extras:"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/cbExtraCream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Agregar Crema Chantilly"
+                    android:textColor="#21130D" />
+
+                <CheckBox
+                    android:id="@+id/cbVegMilk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sustituir por Leche Vegetal"
+                    android:textColor="#21130D" />
+
+                <!-- 6. RatingBar: Prioridad -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Prioridad de la Tarea (1 a 5):"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/rbPriority"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:isIndicator="false"
+                    android:numStars="5"
+                    android:rating="3.0"
+                    android:stepSize="1.0" />
+
+                <!-- 7. ProgressBar: Progreso de Preparación -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Estado de Preparación:"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/pbStatus"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="50" />
+
+                <!-- 8. TableLayout: Resumen de Precios -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Resumen Estimado:"
+                    android:textColor="#21130D"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    android:stretchColumns="1">
+
+                    <TableRow>
+                        <TextView
+                            android:padding="4dp"
+                            android:text="Concepto"
+                            android:textColor="#3E2723"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:gravity="end"
+                            android:padding="4dp"
+                            android:text="Valor Base"
+                            android:textColor="#3E2723"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:padding="4dp"
+                            android:text="Bebida Base:"
+                            android:textColor="#21130D" />
+                        <TextView
+                            android:gravity="end"
+                            android:padding="4dp"
+                            android:text="$ 2.500"
+                            android:textColor="#21130D" />
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:padding="4dp"
+                            android:text="Extras / Personalización:"
+                            android:textColor="#21130D" />
+                        <TextView
+                            android:gravity="end"
+                            android:padding="4dp"
+                            android:text="$ 500"
+                            android:textColor="#21130D" />
+                    </TableRow>
+                </TableLayout>
+
+                <!-- 9. Button: Guardar -->
+                <Button
+                    android:id="@+id/btnSaveTask"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#3E2723"
+                    android:text="Guardar Pedido / Tarea"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 10. RecyclerView: Lista de Pedidos (solo por si acaso) -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calificación de complejidad:"
-            android:textColor="@color/cafe_espresso"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp" />
-
-        <RatingBar
-            android:id="@+id/ratingImportancia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize="1"
-            android:progressTint="@color/cafe_caramel"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Progreso de preparación:"
-            android:textColor="@color/cafe_espresso"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp" />
-
-        <ProgressBar
-            android:id="@+id/progressTarea"
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="100"
-            android:progress="40"
-            android:progressTint="@color/cafe_caramel"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:text="Lista de Pedidos Recientes"
+            android:textColor="#3E2723"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnGuardar"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTasks"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Confirmar y Guardar"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/cafe_espresso"
-            android:layout_marginTop="32dp" />
+            android:layout_height="200dp"
+            android:background="#FFFFFF"
+            tools:listitem="@android:layout/simple_list_item_2" />
 
     </LinearLayout>
 </ScrollView>
